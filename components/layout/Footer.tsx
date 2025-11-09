@@ -55,10 +55,10 @@ export function Footer() {
               href="/"
               className="text-2xl font-bold bg-linear-to-r from-primary to-primary/60 bg-clip-text text-transparent inline-block"
             >
-              Your Name
+              Furkan ERİÇ
             </Link>
             <p className="mt-4 text-muted-foreground max-w-md">
-              Full Stack Developer ve UI/UX Designer. Modern web teknolojileri
+              Full Stack Developer . Modern web teknolojileri
               ile kullanıcı odaklı çözümler üretiyorum.
             </p>
             <div className="flex items-center space-x-3 mt-6">
@@ -123,7 +123,7 @@ export function Footer() {
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} Your Name. Tüm hakları saklıdır.
+            © {currentYear} Furkan ERİÇ. Tüm hakları saklıdır.
           </p>
           <p className="text-sm text-muted-foreground flex items-center">
             Made with <Heart className="h-4 w-4 mx-1 text-red-500 fill-red-500" /> using Next.js 15 & Tailwind CSS 4

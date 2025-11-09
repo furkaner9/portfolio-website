@@ -51,7 +51,7 @@ export function Header() {
             href="/"
             className="text-2xl font-bold bg-linear-to-r from-primary to-primary/60 bg-clip-text text-transparent hover:opacity-80 transition-opacity"
           >
-            Your Name
+            Furkan ERİÇ
           </Link>
 
           {/* Desktop Navigation */}

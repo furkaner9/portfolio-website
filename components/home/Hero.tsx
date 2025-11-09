@@ -135,7 +135,7 @@ export function Hero() {
             className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-12"
           >
             Modern web teknolojileri ile kullanıcı odaklı, ölçeklenebilir ve
-            estetik çözümler üretiyorum. React, Next.js ve TypeScript, ASP.NET Core, C#, .NET 8 gibi teknolojilerde 
+            estetik çözümler üretiyorum. React, Next.js ve TypeScript, ASP.NET Core,  gibi teknolojilerde 
              projelerinizi hayata geçiriyorum.
           </motion.p>
 
@@ -168,8 +168,8 @@ export function Hero() {
             className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8"
           >
             {[
-              { value: "5+", label: "Yıl Deneyim" },
-              { value: "50+", label: "Tamamlanan Proje" },
+              { value: "2+", label: "Yıl Deneyim" },
+              { value: "20+", label: "Tamamlanan Proje" },
               { value: "30+", label: "Mutlu Müşteri" },
               { value: "15+", label: "Ödül" },
             ].map((stat, index) => (
