@@ -2,9 +2,9 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/shared/theme-provider";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
+import { ThemeProvider } from "@/app/components/shared/theme-provider";
+import { Header } from "@/app/components/layout/Header";
+import { Footer } from "@/app/components/layout/Footer";
 import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({

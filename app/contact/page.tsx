@@ -1,8 +1,8 @@
 // app/contact/page.tsx
 import type { Metadata } from "next";
-import { ContactForm } from "@/components/contact/ContactForm";
-import { ContactInfo } from "@/components/contact/ContactInfo";
-import { SocialLinks } from "@/components/contact/SocialLinks";
+import { ContactForm } from "@/app/components/contact/ContactForm";
+import { ContactInfo } from "@/app/components/contact/ContactInfo";
+import { SocialLinks } from "@/app/components/contact/SocialLinks";
 
 export const metadata: Metadata = {
   title: "İletişim",

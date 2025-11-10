@@ -51,7 +51,7 @@ export function ContactInfo() {
           >
             <CardContent className="p-6">
               <div className="flex items-start space-x-4">
-                <div className={`p-3 rounded-xl bg-linear-to-br ${info.color} flex-shrink-0`}>
+                <div className={`p-3 rounded-xl bg-linear-to-br ${info.color} shrink-0`}>
                   <Icon className="w-6 h-6 text-white" />
                 </div>
                 <div className="flex-1 min-w-0">
