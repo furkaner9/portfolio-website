@@ -6,16 +6,17 @@ import { RelatedProjects } from "@/app/components/projects/RelatedProjects";
 import { projectsData } from "@/app/data/projects";
 
 interface ProjectPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 // Generate metadata for SEO
 export async function generateMetadata({
   params,
 }: ProjectPageProps): Promise<Metadata> {
-  const project = projectsData.find((p) => p.id === params.id);
+  const { id } = await params;
+  const project = projectsData.find((p) => p.id === id);
 
   if (!project) {
     return {
@@ -41,8 +42,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ProjectPage({ params }: ProjectPageProps) {
-  const project = projectsData.find((p) => p.id === params.id);
+export default async function ProjectPage({ params }: ProjectPageProps) {
+  const { id } = await params;
+  const project = projectsData.find((p) => p.id === id);
 
   if (!project) {
     notFound();

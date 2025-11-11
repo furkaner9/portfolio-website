@@ -27,7 +27,7 @@ export const projectsData: Project[] = [
     tags: ["ASP.NET Core", "React", "E-Commerce", "Full Stack"],
     category: "web-app",
     featured: true,
-    githubUrl: "https://github.com/yourusername/ecommerce-platform",
+    githubUrl: "https://github.com/furkaner9/ecommerce-platform",
     liveUrl: "https://demo-ecommerce.vercel.app",
     technologies: [
       "ASP.NET Core 8",
