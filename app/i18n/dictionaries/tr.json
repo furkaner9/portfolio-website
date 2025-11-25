@@ -1,0 +1,394 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "about": "Hakkımda",
+    "projects": "Projeler",
+    "blog": "Blog",
+    "contact": "İletişim"
+  },
+  "hero": {
+    "greeting": "Merhaba, Ben",
+    "title": "Full Stack Developer & Designer",
+    "description": "Modern web teknolojileri ile kullanıcı odaklı, ölçeklenebilir ve estetik çözümler üretiyorum. React, Next.js ve TypeScript uzmanlığıyla projelerinizi hayata geçiriyorum.",
+    "viewProjects": "Projelerimi İncele",
+    "downloadCV": "CV İndir",
+    "stats": {
+      "experience": "Yıl Deneyim",
+      "projects": "Tamamlanan Proje",
+      "clients": "Mutlu Müşteri",
+      "awards": "Ödül"
+    },
+    "scrollDown": "Aşağı Kaydır"
+  },
+  "skills": {
+    "badge": "Yetenekler & Teknolojiler",
+    "title": "Teknoloji Yığınım",
+    "description": "Modern web teknolojileri ve araçlarıyla çalışarak, ölçeklenebilir ve performanslı uygulamalar geliştiriyorum.",
+    "learning": {
+      "title": "Sürekli Öğreniyorum",
+      "description": "Teknoloji dünyasındaki yenilikleri takip ediyor ve kendimi geliştirmek için sürekli yeni şeyler öğreniyorum."
+    }
+  },
+  "projects": {
+    "badge": "Öne Çıkan Projeler",
+    "title": "Son Projelerim",
+    "description": "ASP.NET Core, React ve modern teknolojiler ile geliştirdiğim projelerden bazıları. Tüm projeler için GitHub'ımı ziyaret edebilirsiniz.",
+    "viewAll": "Tüm Projeleri Görüntüle",
+    "github": "GitHub",
+    "demo": "Demo",
+    "details": "Detaylar",
+    "status": {
+      "completed": "Tamamlandı",
+      "inProgress": "Devam Ediyor"
+    },
+    "filter": {
+      "search": "Ara",
+      "category": "Kategori",
+      "status": "Durum",
+      "technologies": "Teknolojiler",
+      "clear": "Filtreleri Temizle",
+      "all": "Tümü",
+      "sortBy": "Sırala",
+      "newest": "En Yeni",
+      "oldest": "En Eski",
+      "nameAsc": "İsim (A-Z)",
+      "nameDesc": "İsim (Z-A)",
+      "resultsFound": "proje bulundu",
+      "noResults": "Proje Bulunamadı",
+      "noResultsDesc": "Arama kriterlerinize uygun proje bulunamadı. Filtreleri değiştirmeyi deneyin.",
+      "showAll": "Tüm Projeleri Göster"
+    }
+  },
+  "experience": {
+    "badge": "Kariyer Geçmişi",
+    "title": "Profesyonel Deneyimlerim",
+    "description": "Yıllar içinde edindiğim deneyimler ve çalıştığım projelerle birlikte gelişimim.",
+    "duration": "Süre",
+    "present": "Günümüz",
+    "responsibilities": "Sorumluluklar",
+    "technologies": "Teknolojiler",
+    "achievements": "Başarılar"
+  },
+  "cta": {
+    "badge": "Projeniz için hazırım",
+    "title": "Bir Projeniz mi Var?",
+    "description": "Modern web teknolojileri ile fikirlerinizi hayata geçirelim. ASP.NET Core ve React uzmanlığıyla projelerinizi başarıya taşıyorum.",
+    "contact": "İletişime Geçin",
+    "viewProjects": "Projelerimi İncele",
+    "features": {
+      "quickResponse": {
+        "title": "Hızlı Yanıt",
+        "description": "24 saat içinde geri dönüş"
+      },
+      "flexible": {
+        "title": "Esnek Çalışma",
+        "description": "Online toplantı veya yüz yüze"
+      },
+      "quality": {
+        "title": "Kaliteli İş",
+        "description": "Modern teknolojiler ve best practices"
+      }
+    },
+    "stats": {
+      "projects": "Başarılı Proje",
+      "experience": "Yıl Deneyim",
+      "clients": "Mutlu Müşteri",
+      "satisfaction": "Memnuniyet"
+    },
+    "directContact": "Doğrudan İletişim",
+    "directContactDesc": "Hızlı sorularınız için direkt email atabilirsiniz:",
+    "bottomText": "Freelance projeler, tam zamanlı pozisyonlar veya danışmanlık hizmetleri için açığım"
+  },
+  "footer": {
+    "description": "Full Stack Developer ve UI/UX Designer. Modern web teknolojileri ile kullanıcı odaklı çözümler üretiyorum.",
+    "navigation": "Navigasyon",
+    "resources": "Kaynaklar",
+    "privacy": "Gizlilik Politikası",
+    "terms": "Kullanım Koşulları",
+    "rights": "Tüm hakları saklıdır.",
+    "madeWith": "Made with"
+  },
+  "contact": {
+    "title": "İletişime Geçin",
+    "description": "Projeleriniz için teklif almak, işbirliği yapmak veya herhangi bir sorunuz için benimle iletişime geçebilirsiniz.",
+    "form": {
+      "name": "İsim Soyisim",
+      "email": "Email",
+      "phone": "Telefon",
+      "phoneOptional": "Telefon (Opsiyonel)",
+      "subject": "Konu",
+      "message": "Mesaj",
+      "send": "Mesajı Gönder",
+      "sending": "Gönderiliyor...",
+      "success": "Mesajınız başarıyla gönderildi!",
+      "successDesc": "En kısa sürede size dönüş yapacağım.",
+      "error": "Bir hata oluştu!",
+      "errorDesc": "Lütfen daha sonra tekrar deneyiniz veya email ile iletişime geçiniz."
+    },
+    "info": {
+      "title": "İletişim Bilgileri",
+      "email": "Email",
+      "phone": "Telefon",
+      "location": "Konum",
+      "workingHours": "Çalışma Saatleri",
+      "workingHoursValue": "Pzt-Cum 9:00 - 18:00",
+      "quickNote": "Hızlı Yanıt:",
+      "quickNoteDesc": "Genellikle 24 saat içinde geri dönüş yapıyorum. Acil durumlar için telefon ile iletişime geçebilirsiniz."
+    },
+    "social": {
+      "title": "Sosyal Medya",
+      "description": "Sosyal medya hesaplarımdan beni takip edebilir ve iletişime geçebilirsiniz."
+    }
+  },
+  "blog": {
+    "title": "Blog Yazıları",
+    "description": "Web geliştirme, backend teknolojileri ve best practices hakkında düşüncelerim ve deneyimlerim.",
+    "readMore": "Devamını Oku",
+    "readingTime": "dk okuma",
+    "featured": "Öne Çıkan",
+    "backToBlog": "Blog'a Dön",
+    "share": "Paylaş",
+    "tags": "Etiketler",
+    "likedPost": "Bu yazıyı beğendiniz mi?",
+    "likedPostDesc": "Sosyal medyada paylaşarak daha fazla kişiye ulaşmasına yardımcı olun!",
+    "relatedPosts": "Benzer Yazılar",
+    "allPosts": "Tüm Yazıları Görüntüle",
+    "search": "Ara",
+    "searchPlaceholder": "Blog yazılarında ara...",
+    "categories": "Kategoriler",
+    "popularTags": "Popüler Etiketler",
+    "newsletter": {
+      "title": "Bültene Abone Ol",
+      "description": "Yeni blog yazıları ve güncellemeler için email adresinizi bırakın.",
+      "placeholder": "Email adresiniz",
+      "subscribe": "Abone Ol"
+    }
+  },
+  "about": {
+    "title": "Hakkımda",
+    "description": "Full Stack Developer ve UI/UX Designer. Kariyerim, yeteneklerim ve çalışma prensipleri hakkında detaylı bilgi."
+  },
+  "notFound": {
+    "title": "Sayfa Bulunamadı",
+    "description": "Aradığınız sayfa taşınmış, silinmiş veya hiç var olmamış olabilir. Belki URL'de bir yazım hatası var?",
+    "quickLinks": "Hızlı Bağlantılar",
+    "search": "Arama Yap",
+    "searchDesc": "Aradığınızı bulamadınız mı? Anahtar kelime ile arama yapın.",
+    "searchPlaceholder": "Ara...",
+    "backHome": "Ana Sayfaya Dön",
+    "getHelp": "Yardım İste",
+    "funFact": "Bilgi:",
+    "funFactDesc": "404 hatası, HTTP status code'larından biridir ve \"Not Found\" (Bulunamadı) anlamına gelir. İlk kez 1992 yılında kullanılmaya başlanmıştır."
+  },
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Hata",
+    "success": "Başarılı",
+    "close": "Kapat",
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "view": "Görüntüle",
+    "more": "Daha Fazla",
+    "less": "Daha Az"
+  }
+}
+
+// app/i18n/dictionaries/en.json
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "title": "Full Stack Developer & Designer",
+    "description": "Creating user-focused, scalable, and aesthetic solutions with modern web technologies. Bringing your projects to life with expertise in React, Next.js, and TypeScript.",
+    "viewProjects": "View My Projects",
+    "downloadCV": "Download CV",
+    "stats": {
+      "experience": "Years Experience",
+      "projects": "Completed Projects",
+      "clients": "Happy Clients",
+      "awards": "Awards"
+    },
+    "scrollDown": "Scroll Down"
+  },
+  "skills": {
+    "badge": "Skills & Technologies",
+    "title": "My Tech Stack",
+    "description": "Developing scalable and performant applications by working with modern web technologies and tools.",
+    "learning": {
+      "title": "Always Learning",
+      "description": "I follow innovations in the technology world and constantly learn new things to improve myself."
+    }
+  },
+  "projects": {
+    "badge": "Featured Projects",
+    "title": "Recent Projects",
+    "description": "Some of the projects I developed with ASP.NET Core, React and modern technologies. Visit my GitHub for all projects.",
+    "viewAll": "View All Projects",
+    "github": "GitHub",
+    "demo": "Demo",
+    "details": "Details",
+    "status": {
+      "completed": "Completed",
+      "inProgress": "In Progress"
+    },
+    "filter": {
+      "search": "Search",
+      "category": "Category",
+      "status": "Status",
+      "technologies": "Technologies",
+      "clear": "Clear Filters",
+      "all": "All",
+      "sortBy": "Sort By",
+      "newest": "Newest",
+      "oldest": "Oldest",
+      "nameAsc": "Name (A-Z)",
+      "nameDesc": "Name (Z-A)",
+      "resultsFound": "projects found",
+      "noResults": "No Projects Found",
+      "noResultsDesc": "No projects found matching your search criteria. Try changing the filters.",
+      "showAll": "Show All Projects"
+    }
+  },
+  "experience": {
+    "badge": "Career History",
+    "title": "Professional Experience",
+    "description": "My development journey with the experiences I gained over the years and the projects I worked on.",
+    "duration": "Duration",
+    "present": "Present",
+    "responsibilities": "Responsibilities",
+    "technologies": "Technologies",
+    "achievements": "Achievements"
+  },
+  "cta": {
+    "badge": "Ready for your project",
+    "title": "Have a Project?",
+    "description": "Let's bring your ideas to life with modern web technologies. Taking your projects to success with ASP.NET Core and React expertise.",
+    "contact": "Get in Touch",
+    "viewProjects": "View My Projects",
+    "features": {
+      "quickResponse": {
+        "title": "Quick Response",
+        "description": "Reply within 24 hours"
+      },
+      "flexible": {
+        "title": "Flexible Work",
+        "description": "Online meeting or face-to-face"
+      },
+      "quality": {
+        "title": "Quality Work",
+        "description": "Modern technologies and best practices"
+      }
+    },
+    "stats": {
+      "projects": "Successful Projects",
+      "experience": "Years Experience",
+      "clients": "Happy Clients",
+      "satisfaction": "Satisfaction"
+    },
+    "directContact": "Direct Contact",
+    "directContactDesc": "For quick questions, feel free to email directly:",
+    "bottomText": "Open for freelance projects, full-time positions or consulting services"
+  },
+  "footer": {
+    "description": "Full Stack Developer and UI/UX Designer. Creating user-focused solutions with modern web technologies.",
+    "navigation": "Navigation",
+    "resources": "Resources",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "rights": "All rights reserved.",
+    "madeWith": "Made with"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "description": "Contact me to get a quote for your projects, collaborate or for any questions you may have.",
+    "form": {
+      "name": "Full Name",
+      "email": "Email",
+      "phone": "Phone",
+      "phoneOptional": "Phone (Optional)",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "success": "Your message has been sent successfully!",
+      "successDesc": "I'll get back to you as soon as possible.",
+      "error": "An error occurred!",
+      "errorDesc": "Please try again later or contact me via email."
+    },
+    "info": {
+      "title": "Contact Information",
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "workingHours": "Working Hours",
+      "workingHoursValue": "Mon-Fri 9:00 AM - 6:00 PM",
+      "quickNote": "Quick Response:",
+      "quickNoteDesc": "I usually respond within 24 hours. For urgent matters, feel free to call."
+    },
+    "social": {
+      "title": "Social Media",
+      "description": "Follow me on social media and get in touch."
+    }
+  },
+  "blog": {
+    "title": "Blog Posts",
+    "description": "My thoughts and experiences about web development, backend technologies and best practices.",
+    "readMore": "Read More",
+    "readingTime": "min read",
+    "featured": "Featured",
+    "backToBlog": "Back to Blog",
+    "share": "Share",
+    "tags": "Tags",
+    "likedPost": "Did you like this post?",
+    "likedPostDesc": "Help more people reach it by sharing on social media!",
+    "relatedPosts": "Related Posts",
+    "allPosts": "View All Posts",
+    "search": "Search",
+    "searchPlaceholder": "Search blog posts...",
+    "categories": "Categories",
+    "popularTags": "Popular Tags",
+    "newsletter": {
+      "title": "Subscribe to Newsletter",
+      "description": "Leave your email address for new blog posts and updates.",
+      "placeholder": "Your email address",
+      "subscribe": "Subscribe"
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "description": "Full Stack Developer and UI/UX Designer. Detailed information about my career, skills and work principles."
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you are looking for might have been moved, deleted or never existed. Maybe there's a typo in the URL?",
+    "quickLinks": "Quick Links",
+    "search": "Search",
+    "searchDesc": "Couldn't find what you're looking for? Search by keyword.",
+    "searchPlaceholder": "Search...",
+    "backHome": "Back to Home",
+    "getHelp": "Get Help",
+    "funFact": "Fun Fact:",
+    "funFactDesc": "404 error is one of the HTTP status codes and means \"Not Found\". It was first used in 1992."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "more": "More",
+    "less": "Less"
+  }
+}

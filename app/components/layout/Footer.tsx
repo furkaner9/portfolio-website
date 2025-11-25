@@ -1,8 +1,8 @@
-// src/components/layout/Footer.tsx
 import Link from "next/link";
 import { Github, Linkedin, Twitter, Mail, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import type { Locale } from "@/app/i18n/config";
 
 const footerLinks = {
   main: [
@@ -42,7 +42,11 @@ const socialLinks = [
   },
 ];
 
-export function Footer() {
+interface FooterProps {
+  locale: Locale;
+}
+
+export function Footer({ locale }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -52,13 +56,13 @@ export function Footer() {
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <Link
-              href="/"
+              href={`/${locale}`}
               className="text-2xl font-bold bg-linear-to-r from-primary to-primary/60 bg-clip-text text-transparent inline-block"
             >
-              Furkan ERİÇ
+              Your Name
             </Link>
             <p className="mt-4 text-muted-foreground max-w-md">
-              Full Stack Developer . Modern web teknolojileri
+              Full Stack Developer ve UI/UX Designer. Modern web teknolojileri
               ile kullanıcı odaklı çözümler üretiyorum.
             </p>
             <div className="flex items-center space-x-3 mt-6">
@@ -90,7 +94,7 @@ export function Footer() {
               {footerLinks.main.map((link) => (
                 <li key={link.href}>
                   <Link
-                    href={link.href}
+                    href={`/${locale}${link.href}`}
                     className="text-muted-foreground hover:text-primary transition-colors text-sm"
                   >
                     {link.name}
@@ -107,7 +111,7 @@ export function Footer() {
               {footerLinks.resources.map((link) => (
                 <li key={link.href}>
                   <Link
-                    href={link.href}
+                    href={`/${locale}${link.href}`}
                     className="text-muted-foreground hover:text-primary transition-colors text-sm"
                   >
                     {link.name}
@@ -123,7 +127,7 @@ export function Footer() {
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} Furkan ERİÇ. Tüm hakları saklıdır.
+            © {currentYear} Your Name. Tüm hakları saklıdır.
           </p>
           <p className="text-sm text-muted-foreground flex items-center">
             Made with <Heart className="h-4 w-4 mx-1 text-red-500 fill-red-500" /> using Next.js 15 & Tailwind CSS 4

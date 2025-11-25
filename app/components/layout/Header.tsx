@@ -1,4 +1,3 @@
-// src/components/layout/Header.tsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -7,7 +6,9 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/app/components/shared/ThemeToggle";
+import { LocaleSwitcher } from "@/app/components/shared/LocaleSwitcher";
 import { cn } from "@/lib/utils";
+import type { Locale } from "@/app/i18n/config";
 
 const navItems = [
   { name: "Ana Sayfa", href: "/" },
@@ -17,7 +18,11 @@ const navItems = [
   { name: "İletişim", href: "/contact" },
 ];
 
-export function Header() {
+interface HeaderProps {
+  locale: Locale;
+}
+
+export function Header({ locale }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -48,10 +53,10 @@ export function Header() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link
-            href="/"
+            href={`/${locale}`}
             className="text-2xl font-bold bg-linear-to-r from-primary to-primary/60 bg-clip-text text-transparent hover:opacity-80 transition-opacity"
           >
-            Furkan ERİÇ
+            Your Name
           </Link>
 
           {/* Desktop Navigation */}
@@ -59,10 +64,10 @@ export function Header() {
             {navItems.map((item) => (
               <Link
                 key={item.href}
-                href={item.href}
+                href={`/${locale}${item.href}`}
                 className={cn(
                   "px-4 py-2 rounded-md text-sm font-medium transition-colors",
-                  pathname === item.href
+                  pathname === `/${locale}${item.href}`
                     ? "text-primary bg-primary/10"
                     : "text-muted-foreground hover:text-foreground hover:bg-accent"
                 )}
@@ -72,17 +77,19 @@ export function Header() {
             ))}
           </div>
 
-          {/* Right Side - Theme Toggle & CTA */}
-          <div className="hidden md:flex items-center space-x-4">
+          {/* Right Side - Theme Toggle, Language & CTA */}
+          <div className="hidden md:flex items-center space-x-2">
             <ThemeToggle />
+            <LocaleSwitcher currentLocale={locale} />
             <Button asChild size="sm">
-              <Link href="/contact">İletişime Geç</Link>
+              <Link href={`/${locale}/contact`}>İletişime Geç</Link>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="flex md:hidden items-center space-x-2">
             <ThemeToggle />
+            <LocaleSwitcher currentLocale={locale} />
             <Button
               variant="ghost"
               size="icon"
@@ -104,10 +111,10 @@ export function Header() {
             {navItems.map((item) => (
               <Link
                 key={item.href}
-                href={item.href}
+                href={`/${locale}${item.href}`}
                 className={cn(
                   "block px-4 py-3 rounded-md text-base font-medium transition-colors",
-                  pathname === item.href
+                  pathname === `/${locale}${item.href}`
                     ? "text-primary bg-primary/10"
                     : "text-muted-foreground hover:text-foreground hover:bg-accent"
                 )}
@@ -117,7 +124,7 @@ export function Header() {
             ))}
             <div className="pt-4 px-4">
               <Button asChild className="w-full">
-                <Link href="/contact">İletişime Geç</Link>
+                <Link href={`/${locale}/contact`}>İletişime Geç</Link>
               </Button>
             </div>
           </div>
