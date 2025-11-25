@@ -5,8 +5,9 @@ import { motion } from "framer-motion";
 import { Code2, Sparkles } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { skillsData } from "@/app/data/skills";
+import { getSkillsData } from "@/app/data/skills";
 import type { Skill, SkillCategory } from "@/app/data/skills";
+import type { Locale, Dictionary } from "@/app/i18n/utils";
 
 const container = {
   hidden: { opacity: 0 },
@@ -86,7 +87,14 @@ function SkillCategorySection({ category }: { category: SkillCategory }) {
   );
 }
 
-export function Skills() {
+interface SkillsProps {
+  locale: Locale;
+  dictionary: Dictionary;
+}
+
+export function Skills({ locale, dictionary }: SkillsProps) {
+  const skillsData = getSkillsData(locale);
+
   return (
     <section className="py-20 lg:py-32 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -103,18 +111,17 @@ export function Skills() {
             className="mb-4 px-4 py-2 text-sm font-medium bg-primary/10 hover:bg-primary/20"
           >
             <Code2 className="w-4 h-4 mr-2 inline-block" />
-            Yetenekler & Teknolojiler
+            {dictionary.skills.badge}
           </Badge>
 
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="bg-linear-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Teknoloji Yığınım
+              {dictionary.skills.title}
             </span>
           </h2>
 
           <p className="text-lg text-muted-foreground">
-            Modern web teknolojileri ve araçlarıyla çalışarak, ölçeklenebilir ve
-            performanslı uygulamalar geliştiriyorum.
+            {dictionary.skills.description}
           </p>
         </motion.div>
 
@@ -136,10 +143,9 @@ export function Skills() {
           <Card className="inline-block border-2 border-primary/20 bg-primary/5">
             <CardContent className="p-8">
               <Sparkles className="w-12 h-12 mx-auto mb-4 text-primary" />
-              <h3 className="text-xl font-bold mb-2">Sürekli Öğreniyorum</h3>
+              <h3 className="text-xl font-bold mb-2">{dictionary.skills.learning.title}</h3>
               <p className="text-muted-foreground max-w-md">
-                Teknoloji dünyasındaki yenilikleri takip ediyor ve kendimi
-                geliştirmek için sürekli yeni şeyler öğreniyorum.
+                {dictionary.skills.learning.description}
               </p>
             </CardContent>
           </Card>

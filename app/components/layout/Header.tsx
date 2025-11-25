@@ -8,24 +8,25 @@ import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/app/components/shared/ThemeToggle";
 import { LocaleSwitcher } from "@/app/components/shared/LocaleSwitcher";
 import { cn } from "@/lib/utils";
-import type { Locale } from "@/app/i18n/config";
-
-const navItems = [
-  { name: "Ana Sayfa", href: "/" },
-  { name: "Hakkımda", href: "/about" },
-  { name: "Projeler", href: "/projects" },
-  { name: "Blog", href: "/blog" },
-  { name: "İletişim", href: "/contact" },
-];
+import type { Locale, Dictionary } from "@/app/i18n/utils";
 
 interface HeaderProps {
   locale: Locale;
+  dictionary: Dictionary;
 }
 
-export function Header({ locale }: HeaderProps) {
+export function Header({ locale, dictionary }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  const navItems = [
+    { name: dictionary.nav.home, href: "/" },
+    { name: dictionary.nav.about, href: "/about" },
+    { name: dictionary.nav.projects, href: "/projects" },
+    { name: dictionary.nav.blog, href: "/blog" },
+    { name: dictionary.nav.contact, href: "/contact" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -82,7 +83,7 @@ export function Header({ locale }: HeaderProps) {
             <ThemeToggle />
             <LocaleSwitcher currentLocale={locale} />
             <Button asChild size="sm">
-              <Link href={`/${locale}/contact`}>İletişime Geç</Link>
+              <Link href={`/${locale}/contact`}>{dictionary.cta.contact}</Link>
             </Button>
           </div>
 
@@ -124,7 +125,7 @@ export function Header({ locale }: HeaderProps) {
             ))}
             <div className="pt-4 px-4">
               <Button asChild className="w-full">
-                <Link href={`/${locale}/contact`}>İletişime Geç</Link>
+                <Link href={`/${locale}/contact`}>{dictionary.cta.contact}</Link>
               </Button>
             </div>
           </div>

@@ -18,12 +18,31 @@ export function LocaleSwitcher({ currentLocale }: { currentLocale: Locale }) {
   const switchLocale = (newLocale: Locale) => {
     if (currentLocale === newLocale) return;
 
-    // Remove current locale from path
-    const pathWithoutLocale = pathname.replace(`/${currentLocale}`, "") || "/";
-    
-    // Add new locale to path
-    const newPath = `/${newLocale}${pathWithoutLocale}`;
-    
+    // Split pathname into segments
+    const segments = pathname.split("/");
+
+    // segments[0] is always empty string because pathname starts with /
+    // segments[1] should be the locale
+
+    // Check if the first segment is a valid locale
+    if (segments.length > 1 && i18n.locales.includes(segments[1] as Locale)) {
+      segments[1] = newLocale;
+    } else {
+    // If not (e.g. root path or missing locale), prepend the new locale
+    // But since we are using middleware, this case should be rare for pages
+    // However, to be safe, if we can't find the locale, we might want to just navigate to /{newLocale}
+    // or try to preserve the path.
+
+      // If we are at root "/", segments is ["", ""]
+      if (pathname === "/") {
+        segments[1] = newLocale;
+      } else {
+        // Path doesn't start with locale, so prepend it
+        segments.splice(1, 0, newLocale);
+      }
+    }
+
+    const newPath = segments.join("/");
     router.push(newPath);
   };
 

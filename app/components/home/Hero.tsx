@@ -7,8 +7,9 @@ import { motion } from "framer-motion";
 import { ArrowRight, Download, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import type { Dictionary } from "@/app/i18n/utils";
 
-export function Hero() {
+export function Hero({ dictionary }: { dictionary: Dictionary }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -101,7 +102,7 @@ export function Hero() {
               className="px-4 py-2 text-sm font-medium bg-primary/10 hover:bg-primary/20 transition-colors"
             >
               <Sparkles className="w-4 h-4 mr-2 inline-block" />
-              Merhaba, Ben
+              {dictionary.hero.greeting}
             </Badge>
           </motion.div>
 
@@ -124,7 +125,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground mb-4"
           >
-            Full Stack Developer 
+            {dictionary.hero.title}
           </motion.p>
 
           {/* Description */}
@@ -134,9 +135,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-12"
           >
-            Modern web teknolojileri ile kullanıcı odaklı, ölçeklenebilir ve
-            estetik çözümler üretiyorum. React, Next.js ve TypeScript, ASP.NET Core,  gibi teknolojilerde 
-             projelerinizi hayata geçiriyorum.
+            {dictionary.hero.description}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -148,14 +147,14 @@ export function Hero() {
           >
             <Button asChild size="lg" className="group">
               <Link href="/projects">
-                Projelerimi İncele
+                {dictionary.hero.viewProjects}
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="group">
               <Link href="/Furkan_ERİCRESUME.pdf" target="_blank">
                 <Download className="mr-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
-                CV İndir
+                {dictionary.hero.downloadCV}
               </Link>
             </Button>
           </motion.div>
@@ -168,10 +167,10 @@ export function Hero() {
             className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8"
           >
             {[
-              { value: "2+", label: "Yıl Deneyim" },
-              { value: "20+", label: "Tamamlanan Proje" },
-              { value: "30+", label: "Mutlu Müşteri" },
-              { value: "15+", label: "Ödül" },
+              { value: "2+", label: dictionary.hero.stats.experience },
+              { value: "20+", label: dictionary.hero.stats.projects },
+              { value: "30+", label: dictionary.hero.stats.clients },
+              { value: "15+", label: dictionary.hero.stats.awards },
             ].map((stat, index) => (
               <div
                 key={index}
@@ -197,7 +196,7 @@ export function Hero() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
         <div className="flex flex-col items-center gap-2">
-          <span className="text-sm text-muted-foreground">Aşağı Kaydır</span>
+          <span className="text-sm text-muted-foreground">{dictionary.hero.scrollDown}</span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}

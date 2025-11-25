@@ -6,8 +6,9 @@ import { Briefcase, Calendar, MapPin, Award, ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { experienceData } from "@/app/data/experience";
+import { getExperienceData } from "@/app/data/experience";
 import type { Experience } from "@/app/data/experience";
+import type { Locale, Dictionary } from "@/app/i18n/utils";
 
 const container = {
   hidden: { opacity: 0 },
@@ -24,17 +25,17 @@ const item = {
   show: { opacity: 1, x: 0 },
 };
 
-function formatDate(dateStr: string | "Present"): string {
-  if (dateStr === "Present") return "Günümüz";
+function formatDate(dateStr: string | "Present", dictionary: Dictionary): string {
+  if (dateStr === "Present") return dictionary.experience.present;
   const [year, month] = dateStr.split("-");
-  const months = [
-    "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
-    "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"
-  ];
-  return `${months[parseInt(month) - 1]} ${year}`;
+  // Assuming month names are not in dictionary for now, using hardcoded Turkish or English based on locale?
+  // Ideally should use dictionary or Intl.DateTimeFormat
+  // But for now let's use a simple mapping or just Intl
+  const date = new Date(parseInt(year), parseInt(month) - 1);
+  return new Intl.DateTimeFormat(dictionary.nav.home === "Home" ? "en-US" : "tr-TR", { month: "long", year: "numeric" }).format(date);
 }
 
-function calculateDuration(start: string, end: string | "Present"): string {
+function calculateDuration(start: string, end: string | "Present", dictionary: Dictionary): string {
   const startDate = new Date(start);
   const endDate = end === "Present" ? new Date() : new Date(end);
   
@@ -44,17 +45,20 @@ function calculateDuration(start: string, end: string | "Present"): string {
   const years = Math.floor(months / 12);
   const remainingMonths = months % 12;
   
-  if (years === 0) return `${remainingMonths} ay`;
-  if (remainingMonths === 0) return `${years} yıl`;
-  return `${years} yıl ${remainingMonths} ay`;
+  const yearText = dictionary.experience.time.year;
+  const monthText = dictionary.experience.time.month;
+
+  if (years === 0) return `${remainingMonths} ${monthText}`;
+  if (remainingMonths === 0) return `${years} ${yearText}`;
+  return `${years} ${yearText} ${remainingMonths} ${monthText}`;
 }
 
-function getTypeLabel(type: Experience["type"]): string {
+function getTypeLabel(type: Experience["type"], dictionary: Dictionary): string {
   const labels = {
-    "full-time": "Tam Zamanlı",
-    "part-time": "Yarı Zamanlı",
-    "freelance": "Freelance",
-    "contract": "Sözleşmeli"
+    "full-time": dictionary.experience.type.fullTime,
+    "part-time": dictionary.experience.type.partTime,
+    "freelance": dictionary.experience.type.freelance,
+    "contract": dictionary.experience.type.contract
   };
   return labels[type];
 }
@@ -69,7 +73,7 @@ function getTypeColor(type: Experience["type"]): string {
   return colors[type];
 }
 
-function ExperienceCard({ exp, index }: { exp: Experience; index: number }) {
+function ExperienceCard({ exp, index, dictionary }: { exp: Experience; index: number; dictionary: Dictionary }) {
   const isEven = index % 2 === 0;
 
   return (
@@ -92,17 +96,17 @@ function ExperienceCard({ exp, index }: { exp: Experience; index: number }) {
                 <div className={`flex items-center gap-4 mt-3 text-sm text-muted-foreground ${isEven ? "justify-end" : "justify-start"}`}>
                   <span className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
-                    {formatDate(exp.startDate)} - {formatDate(exp.endDate)}
+                    {formatDate(exp.startDate, dictionary)} - {formatDate(exp.endDate, dictionary)}
                   </span>
                   <span className="text-primary font-medium">
-                    {calculateDuration(exp.startDate, exp.endDate)}
+                    {calculateDuration(exp.startDate, exp.endDate, dictionary)}
                   </span>
                 </div>
                 <div className={`flex items-center gap-2 mt-2 ${isEven ? "justify-end" : "justify-start"}`}>
                   <MapPin className="w-4 h-4 text-muted-foreground" />
                   <span className="text-sm text-muted-foreground">{exp.location}</span>
                   <Badge className={`ml-2 bg-linear-to-r ${getTypeColor(exp.type)}`}>
-                    {getTypeLabel(exp.type)}
+                    {getTypeLabel(exp.type, dictionary)}
                   </Badge>
                 </div>
               </div>
@@ -116,7 +120,7 @@ function ExperienceCard({ exp, index }: { exp: Experience; index: number }) {
             <div>
               <h4 className="font-semibold text-sm mb-2 flex items-center gap-2">
                 <ChevronRight className="w-4 h-4" />
-                Sorumluluklar
+                {dictionary.experience.responsibilities}
               </h4>
               <ul className="space-y-1 text-sm text-muted-foreground">
                 {exp.responsibilities.slice(0, 3).map((resp, idx) => (
@@ -130,7 +134,7 @@ function ExperienceCard({ exp, index }: { exp: Experience; index: number }) {
 
             {/* Technologies */}
             <div>
-              <h4 className="font-semibold text-sm mb-2">Teknolojiler</h4>
+              <h4 className="font-semibold text-sm mb-2">{dictionary.experience.technologies}</h4>
               <div className="flex flex-wrap gap-2">
                 {exp.technologies.map((tech, idx) => (
                   <Badge key={idx} variant="secondary" className="text-xs">
@@ -145,7 +149,7 @@ function ExperienceCard({ exp, index }: { exp: Experience; index: number }) {
               <div className="pt-2 border-t">
                 <h4 className="font-semibold text-sm mb-2 flex items-center gap-2">
                   <Award className="w-4 h-4 text-yellow-500" />
-                  Başarılar
+                  {dictionary.experience.achievements}
                 </h4>
                 <ul className="space-y-1 text-sm text-muted-foreground">
                   {exp.achievements.map((achievement, idx) => (
@@ -172,7 +176,14 @@ function ExperienceCard({ exp, index }: { exp: Experience; index: number }) {
   );
 }
 
-export function Experience() {
+interface ExperienceProps {
+  locale: Locale;
+  dictionary: Dictionary;
+}
+
+export function Experience({ locale, dictionary }: ExperienceProps) {
+  const experienceData = getExperienceData(locale);
+
   return (
     <section className="py-20 lg:py-32 bg-background relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -189,18 +200,17 @@ export function Experience() {
             className="mb-4 px-4 py-2 text-sm font-medium bg-primary/10 hover:bg-primary/20"
           >
             <Briefcase className="w-4 h-4 mr-2 inline-block" />
-            Kariyer Geçmişi
+            {dictionary.experience.badge}
           </Badge>
 
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="bg-linear-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Profesyonel Deneyimlerim
+              {dictionary.experience.title}
             </span>
           </h2>
 
           <p className="text-lg text-muted-foreground">
-            Yıllar içinde edindiğim deneyimler ve çalıştığım projelerle
-            birlikte gelişimim.
+            {dictionary.experience.description}
           </p>
         </motion.div>
 
@@ -218,7 +228,7 @@ export function Experience() {
             className="space-y-12 lg:space-y-24"
           >
             {experienceData.map((exp, index) => (
-              <ExperienceCard key={exp.id} exp={exp} index={index} />
+              <ExperienceCard key={exp.id} exp={exp} index={index} dictionary={dictionary} />
             ))}
           </motion.div>
         </div>
@@ -237,7 +247,7 @@ export function Experience() {
                 5+
               </div>
               <p className="text-sm text-muted-foreground mt-2">
-                Yıl Deneyim
+                {dictionary.hero.stats.experience}
               </p>
             </CardContent>
           </Card>
@@ -247,7 +257,7 @@ export function Experience() {
                 50+
               </div>
               <p className="text-sm text-muted-foreground mt-2">
-                Tamamlanan Proje
+                {dictionary.hero.stats.projects}
               </p>
             </CardContent>
           </Card>
@@ -257,7 +267,7 @@ export function Experience() {
                 15+
               </div>
               <p className="text-sm text-muted-foreground mt-2">
-                Teknoloji & Araç
+                {dictionary.experience.stats.technologies}
               </p>
             </CardContent>
           </Card>

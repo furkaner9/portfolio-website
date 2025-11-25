@@ -2,22 +2,7 @@ import Link from "next/link";
 import { Github, Linkedin, Twitter, Mail, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import type { Locale } from "@/app/i18n/config";
-
-const footerLinks = {
-  main: [
-    { name: "Ana Sayfa", href: "/" },
-    { name: "Hakkımda", href: "/about" },
-    { name: "Projeler", href: "/projects" },
-    { name: "Blog", href: "/blog" },
-  ],
-  resources: [
-    { name: "İletişim", href: "/contact" },
-    { name: "Gizlilik Politikası", href: "/privacy" },
-    { name: "Kullanım Koşulları", href: "/terms" },
-    { name: "RSS", href: "/feed.xml" },
-  ],
-};
+import type { Locale, Dictionary } from "@/app/i18n/utils";
 
 const socialLinks = [
   {
@@ -44,10 +29,26 @@ const socialLinks = [
 
 interface FooterProps {
   locale: Locale;
+  dictionary: Dictionary;
 }
 
-export function Footer({ locale }: FooterProps) {
+export function Footer({ locale, dictionary }: FooterProps) {
   const currentYear = new Date().getFullYear();
+
+  const footerLinks = {
+    main: [
+      { name: dictionary.nav.home, href: "/" },
+      { name: dictionary.nav.about, href: "/about" },
+      { name: dictionary.nav.projects, href: "/projects" },
+      { name: dictionary.nav.blog, href: "/blog" },
+    ],
+    resources: [
+      { name: dictionary.nav.contact, href: "/contact" },
+      { name: dictionary.footer.privacy, href: "/privacy" },
+      { name: dictionary.footer.terms, href: "/terms" },
+      { name: "RSS", href: "/feed.xml" },
+    ],
+  };
 
   return (
     <footer className="bg-muted/50 border-t">
@@ -62,8 +63,7 @@ export function Footer({ locale }: FooterProps) {
               Your Name
             </Link>
             <p className="mt-4 text-muted-foreground max-w-md">
-              Full Stack Developer ve UI/UX Designer. Modern web teknolojileri
-              ile kullanıcı odaklı çözümler üretiyorum.
+              {dictionary.footer.description}
             </p>
             <div className="flex items-center space-x-3 mt-6">
               {socialLinks.map((social) => (
@@ -89,7 +89,7 @@ export function Footer({ locale }: FooterProps) {
 
           {/* Navigation Links */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Navigasyon</h3>
+            <h3 className="font-semibold text-foreground mb-4">{dictionary.footer.navigation}</h3>
             <ul className="space-y-3">
               {footerLinks.main.map((link) => (
                 <li key={link.href}>
@@ -106,7 +106,7 @@ export function Footer({ locale }: FooterProps) {
 
           {/* Resources */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Kaynaklar</h3>
+            <h3 className="font-semibold text-foreground mb-4">{dictionary.footer.resources}</h3>
             <ul className="space-y-3">
               {footerLinks.resources.map((link) => (
                 <li key={link.href}>
@@ -127,10 +127,10 @@ export function Footer({ locale }: FooterProps) {
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} Your Name. Tüm hakları saklıdır.
+            © {currentYear} Your Name. {dictionary.footer.rights}
           </p>
           <p className="text-sm text-muted-foreground flex items-center">
-            Made with <Heart className="h-4 w-4 mx-1 text-red-500 fill-red-500" /> using Next.js 15 & Tailwind CSS 4
+            {dictionary.footer.madeWith} <Heart className="h-4 w-4 mx-1 text-red-500 fill-red-500" /> using Next.js 15 & Tailwind CSS 4
           </p>
         </div>
       </div>

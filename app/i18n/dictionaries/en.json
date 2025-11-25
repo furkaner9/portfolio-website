@@ -57,7 +57,10 @@
       "noResults": "No Projects Found",
       "noResultsDesc": "No projects found matching your search criteria. Try changing the filters.",
       "showAll": "Show All Projects"
-    }
+    },
+    "moreProjectsTitle": "More Projects on GitHub",
+    "moreProjectsDescription": "You can explore 50+ open source projects and contributions on my GitHub profile. Clean code, best practices, and modern technologies.",
+    "githubProfile": "Go to GitHub Profile"
   },
   "experience": {
     "badge": "Career History",
@@ -67,7 +70,20 @@
     "present": "Present",
     "responsibilities": "Responsibilities",
     "technologies": "Technologies",
-    "achievements": "Achievements"
+    "achievements": "Achievements",
+    "type": {
+      "fullTime": "Full Time",
+      "partTime": "Part Time",
+      "freelance": "Freelance",
+      "contract": "Contract"
+    },
+    "time": {
+      "year": "year",
+      "month": "month"
+    },
+    "stats": {
+        "technologies": "Technologies & Tools"
+    }
   },
   "cta": {
     "badge": "Ready for your project",

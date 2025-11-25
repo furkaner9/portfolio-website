@@ -8,8 +8,9 @@ import { Rocket, Github, ExternalLink, ArrowRight, Calendar } from "lucide-react
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import { featuredProjects } from "@/app/data/projects";
+import { getProjectsData } from "@/app/data/projects";
 import type { Project } from "@/app/data/projects";
+import type { Locale, Dictionary } from "@/app/i18n/utils";
 
 const container = {
   hidden: { opacity: 0 },
@@ -26,9 +27,7 @@ const item = {
   show: { opacity: 1, y: 0 },
 };
 
-function ProjectCard({ project, index }: { project: Project; index: number }) {
-  const isEven = index % 2 === 0;
-
+function ProjectCard({ project, index, dictionary, locale }: { project: Project; index: number; dictionary: Dictionary; locale: Locale }) {
   return (
     <motion.div variants={item}>
       <Card className="group overflow-hidden border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-xl h-full flex flex-col">
@@ -49,7 +48,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           {/* Status Badge */}
           <div className="absolute top-4 right-4 z-20">
             <Badge className="bg-green-500 text-white">
-              {project.status === "completed" ? "Tamamlandı" : "Devam Ediyor"}
+              {project.status === "completed" ? dictionary.projects.status.completed : dictionary.projects.status.inProgress}
             </Badge>
           </div>
         </div>
@@ -108,7 +107,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 rel="noopener noreferrer"
               >
                 <Github className="w-4 h-4 mr-2" />
-                GitHub
+                {dictionary.projects.github}
               </a>
             </Button>
           )}
@@ -120,13 +119,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 rel="noopener noreferrer"
               >
                 <ExternalLink className="w-4 h-4 mr-2" />
-                Demo
+                {dictionary.projects.demo}
               </a>
             </Button>
           )}
           <Button size="sm" className="flex-1" asChild>
-            <Link href={`/projects/${project.id}`}>
-              Detaylar
+            <Link href={`/${locale}/projects/${project.id}`}>
+              {dictionary.projects.details}
               <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
           </Button>
@@ -136,7 +135,15 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   );
 }
 
-export function FeaturedProjects() {
+interface FeaturedProjectsProps {
+  locale: Locale;
+  dictionary: Dictionary;
+}
+
+export function FeaturedProjects({ locale, dictionary }: FeaturedProjectsProps) {
+  const projectsData = getProjectsData(locale);
+  const featuredProjects = projectsData.filter((project) => project.featured);
+
   return (
     <section className="py-20 lg:py-32 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -153,18 +160,17 @@ export function FeaturedProjects() {
             className="mb-4 px-4 py-2 text-sm font-medium bg-primary/10 hover:bg-primary/20"
           >
             <Rocket className="w-4 h-4 mr-2 inline-block" />
-            Öne Çıkan Projeler
+            {dictionary.projects.badge}
           </Badge>
 
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="bg-linear-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Son Projelerim
+              {dictionary.projects.title}
             </span>
           </h2>
 
           <p className="text-lg text-muted-foreground">
-            ASP.NET Core, React ve modern teknolojiler ile geliştirdiğim
-            projelerden bazıları. Tüm projeler için GitHub'ımı ziyaret edebilirsiniz.
+            {dictionary.projects.description}
           </p>
         </motion.div>
 
@@ -177,7 +183,7 @@ export function FeaturedProjects() {
           className="grid md:grid-cols-2 gap-8 lg:gap-12 mb-12"
         >
           {featuredProjects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+            <ProjectCard key={project.id} project={project} index={index} dictionary={dictionary} locale={locale} />
           ))}
         </motion.div>
 
@@ -190,8 +196,8 @@ export function FeaturedProjects() {
           className="text-center"
         >
           <Button size="lg" asChild className="group">
-            <Link href="/projects">
-              Tüm Projeleri Görüntüle
+            <Link href={`/${locale}/projects`}>
+              {dictionary.projects.viewAll}
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
           </Button>
@@ -209,11 +215,10 @@ export function FeaturedProjects() {
             <CardContent className="p-8 text-center">
               <Github className="w-16 h-16 mx-auto mb-4 text-primary" />
               <h3 className="text-2xl font-bold mb-2">
-                Daha Fazla Proje için GitHub
+                {dictionary.projects.moreProjectsTitle}
               </h3>
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                GitHub profilimde 50+ açık kaynak proje ve katkılarımı inceleyebilirsiniz.
-                Clean code, best practices ve modern teknolojiler.
+                {dictionary.projects.moreProjectsDescription}
               </p>
               <Button size="lg" variant="outline" asChild>
                 <a
@@ -222,7 +227,7 @@ export function FeaturedProjects() {
                   rel="noopener noreferrer"
                 >
                   <Github className="w-5 h-5 mr-2" />
-                  GitHub Profilime Git
+                  {dictionary.projects.githubProfile}
                 </a>
               </Button>
             </CardContent>
