@@ -20,7 +20,7 @@ export function AboutHero() {
           >
             <div className="relative">
               {/* Decorative Elements */}
-              <div className="absolute -top-4 -left-4 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl" />
+              <div className="absolute -top-4 -left-4 w-72 h-72  rounded-full blur-3xl" />
               <div className="absolute -bottom-4 -right-4 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl" />
               
               {/* Profile Image */}
@@ -90,7 +90,7 @@ export function AboutHero() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="text-xl text-muted-foreground leading-relaxed"
               >
-                Bursa merkezli Full Stack Developer ve UI/UX Designer. 
+                Bursa merkezli Full Stack Developer . 
                 ASP.NET Core ve modern JavaScript teknolojileri ile 
                 kullanıcı odaklı web uygulamaları geliştiriyorum.
               </motion.p>
@@ -155,22 +155,17 @@ export function AboutHero() {
             >
               <div>
                 <p className="text-3xl font-bold bg-linear-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-                  5+
+                  2+
                 </p>
                 <p className="text-sm text-muted-foreground">Yıl Deneyim</p>
               </div>
               <div>
                 <p className="text-3xl font-bold bg-linear-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-                  50+
+                  15+
                 </p>
                 <p className="text-sm text-muted-foreground">Proje</p>
               </div>
-              <div>
-                <p className="text-3xl font-bold bg-linear-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-                  30+
-                </p>
-                <p className="text-sm text-muted-foreground">Mutlu Müşteri</p>
-              </div>
+              
             </motion.div>
           </motion.div>
         </div>
