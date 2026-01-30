@@ -1,0 +1,13 @@
+[33mbd86e97[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m Fix merge conflicts in projects data
+[33md71836e[m Refactor code structure for improved readability and maintainability
+[33mdec3a4a[m[33m ([m[1;31morigin/master[m[33m)[m Merge pull request #1 from furkaner9/vercel/react-server-components-cve-vu-3j570v
+[33m6886436[m Fix React Server Components CVE vulnerabilities
+[33m653d3ae[m feat: establish portfolio website with home sections, data, and internationalization.
+[33m7262ec4[m feat: Implement internationalization with locale-based routing, core pages, and layout components.
+[33m64ef8f3[m projeler sayfası yapıldı
+[33m8938512[m blog sitemi tamamlandı
+[33m400a267[m about page yapıldı
+[33m22ccea8[m projeler kısmı yapıldı
+[33mb1ad444[m Experience kısmı tamamlandı
+[33m808ae20[m Kişisel web sitesi
+[33m352b2dc[m Initial commit from Create Next App
